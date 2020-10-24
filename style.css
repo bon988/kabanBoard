@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&family=Lobster&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+:root {
+  --column-1: rgba(248, 231, 230, 0.925);
+  --column-2: rgba(207, 227, 231, 0.925);
+  --column-3: rgba(208, 222, 230, 0.925);
+  --column-4: rgba(133, 155, 170, 0.925);
+}
+
+body {
+  background: url("./pexels-eberhard-grossgasteiger.jpg");
+  margin: 0;
+  background-size: cover;
+  background-position: 50% 60%;
+  background-attachment: fixed;
+  color: rgba(255, 255, 255, 0.911);
+  font-family: Fira Sans, sans-serif;
+  overflow-y: hidden;
+}
+
+html,body {
+  overflow:auto;
+}
+
+h1 {
+  letter-spacing: 1px;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 50px;
+  margin-top: 0px;
+  font-family: Lobster, sans-serif;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.drag-container {
+  margin: 20px 20px 100px 20px;
+}
+
+.drag-list {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Columns */
+.drag-column {
+  flex: 1;
+  margin: 0 15px;
+  position: relative;
+  background-color:  rgba(240, 240, 240, 0.930);
+  border-radius: 5px;
+  color: rgba(41, 41, 41, 0.877);
+  overflow-x: hidden;
+}
+
+/* Title */
+.drag-column .header{
+  border-radius: 5px;
+  font-size: 3rem;
+  padding: 5px;
+  margin: 20px 20px 10px 20px;
+ }
+
+.toDo-column .header,
+.toDo-column .over {
+  background-color: var(--column-1);
+}
+
+.doing-column .header,
+.doing-column .over {
+  background-color: var(--column-2);
+}
+
+.review-column .header,
+.review-column .over {
+  background-color: var(--column-3);
+}
+
+.done-column .header,
+.done-column .over {
+  background-color: var(--column-4);
+}
+
+/* Custom Scrollbar */
+.custom-scroll {
+  overflow-y: auto;
+  max-height: 52vh;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(232, 232, 232, 0.692);
+  border-radius: 5px;
+  margin-right: 5px;
+  height: 200px;
+  overflow: auto;
+  margin: 15px -300px 15px 15px;
+  padding-right: 300px;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  box-shadow: inset 0 0 6px rgb(252, 252, 252);
+
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.header h1 {
+  font-size: 1.25rem;
+}
+
+/* Drag and Drop */
+.over {
+  padding: 50px 10px;
+}
+
+.drag-item-list {
+  min-height: 50px;
+}
+
+/* Card */
+.drag-item {
+  margin: 10px 30px ;
+  padding: 10px;
+  height: fit-content;
+  background-color: white;
+  border-radius: 0px;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+  cursor: grab;
+}
+
+.drag-item:focus {
+  outline: none;
+  color: rgb(53, 65, 59);
+  cursor: grabbing;
+}
+
+/* Add Button Group */
+.add-btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-btn {
+  margin: 20px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+  border-radius: 5px;
+  transition: all 0.3s ease-in;
+  user-select: none;
+  background-color: rgba(240, 240, 240, 0);
+  color: rgb(70, 74, 88);
+  font-size: small;
+}
+
+.add-btn:hover {
+  color: rgb(68, 81, 88);
+  font-size: smaller;
+  filter: brightness(150%);
+}
+
+.add-btn:active {
+  transform: scale(0.97);
+}
+
+.solid {
+  display: none;
+  color: rgb(53, 65, 59);
+  background-color: rgba(245, 245, 245, 0.877);
+  margin: 20px 30px 15px 0px;
+}
+
+.solid:hover {
+  transition: unset;
+  color: rgb(68, 81, 88);
+  filter: brightness(110%);
+}
+
+.plus-sign {
+  font-size: 1.5rem;
+  margin-right: 5px;
+  position: relative;
+  top: -3px;
+  filter: brightness(110%);
+}
+
+.add-container {
+  margin: 0px 20px 30px 20px;
+  padding-bottom: 5px 0px;
+  min-height: 10px;
+  display: none;
+}
+
+.add-item {
+  width: 80%;
+  min-height: 40px;
+  height: auto;
+  background-color: white;
+  border-radius: 0px;
+  margin: 5px auto;
+  resize: none;
+  padding: 15px;
+}
+
+.add-item:focus {
+  outline: none;
+}
+
+/* Media Query: Laptop */
+@media screen and (max-width: 1800px) {
+  .main-title {
+    font-size: 2rem;
+  }
+}
+
+/* Media Query: Large Smartphone (Vertical) */
+@media screen and (max-width: 600px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .drag-container {
+    margin: 0;
+  }
+
+  .drag-list {
+    display: block;
+  }
+
+  .drag-column {
+    margin: 10px;
+  }
+}
